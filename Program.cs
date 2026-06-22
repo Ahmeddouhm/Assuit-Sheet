@@ -3,4 +3,4 @@
 int a = int.Parse(input[0]);
 int b = int.Parse(input[1]);
 
-Console.WriteLine(a >= b ? "Yes" : "No");
+Console.WriteLine((a % b == 0 || b % a == 0) ? "Multiples" : "No Multiples");
