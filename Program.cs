@@ -1,8 +1,12 @@
 ﻿string[] input = Console.ReadLine().Split();
-// + * -
-long num1 = long.Parse(input[0]);
-long num2 = long.Parse(input[1]);
 
-Console.WriteLine($"{num1} + {num2} = {num1 + num2}");
-Console.WriteLine($"{num1} * {num2} = {num1 * num2}");
-Console.WriteLine($"{num1} - {num2} = {num1 - num2}");
+// (A*B) - (C*D)
+
+long a = long.Parse(input[0]);
+long b = long.Parse(input[1]);
+long c = long.Parse(input[2]);
+long d = long.Parse(input[3]);
+
+long result = (a * b) - (c * d);
+
+Console.WriteLine("Difference = "+result);
