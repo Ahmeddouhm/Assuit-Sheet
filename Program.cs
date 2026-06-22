@@ -1,5 +1,3 @@
-﻿string[] name1 = Console.ReadLine().Split();
-string[] name2 = Console.ReadLine().Split();
+﻿char c = char.Parse(Console.ReadLine());
 
-Console.WriteLine(name1[1] == name2[1] ? "ARE Brothers" : "NOT");
-
+Console.WriteLine(char.IsAsciiDigit(c) ? "IS DIGIT" : char.IsAsciiLetterUpper(c) ? "ALPHA\r\nIS CAPITAL" : "ALPHA\r\nIS SMALL");
