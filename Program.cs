@@ -1,12 +1,4 @@
-﻿string[] input = Console.ReadLine().Split();
+﻿const double pi = Math.PI;
+double r = double.Parse(Console.ReadLine());
 
-// (A*B) - (C*D)
-
-long a = long.Parse(input[0]);
-long b = long.Parse(input[1]);
-long c = long.Parse(input[2]);
-long d = long.Parse(input[3]);
-
-long result = (a * b) - (c * d);
-
-Console.WriteLine("Difference = "+result);
+Console.WriteLine(pi * Math.Pow(r,2));
