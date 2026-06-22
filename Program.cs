@@ -1,9 +1,6 @@
 ﻿string[] input = Console.ReadLine().Split();
 
-decimal a = decimal.Parse(input[0]);
-decimal b = decimal.Parse(input[1]);
-decimal result = a / b;
+int a = int.Parse(input[0]);
+int b = int.Parse(input[1]);
 
-Console.WriteLine($"floor {a} / {b} = {Math.Floor(result)}");
-Console.WriteLine($"ceil {a} / {b} = {Math.Ceiling(result)}");
-Console.WriteLine($"round {a} / {b} = {Math.Round(result,MidpointRounding.AwayFromZero)}");
+Console.WriteLine(a >= b ? "Yes" : "No");
