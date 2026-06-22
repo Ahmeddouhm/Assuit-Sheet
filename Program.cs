@@ -1,6 +1,3 @@
-﻿string[] input = Console.ReadLine().Split();
+﻿long n = long.Parse(Console.ReadLine());
 
-int lastNum1 = int.Parse(input[0].Substring(input[0].Length-1));
-int lastNum2 = int.Parse(input[1].Substring(input[1].Length-1));
-
-Console.WriteLine(lastNum1+lastNum2);
+Console.WriteLine((n*(n+1))/2);
