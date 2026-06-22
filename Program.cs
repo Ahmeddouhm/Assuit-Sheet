@@ -1,25 +1,5 @@
-﻿string[] input = Console.ReadLine().Split();
+﻿string[] name1 = Console.ReadLine().Split();
+string[] name2 = Console.ReadLine().Split();
 
-int a = int.Parse(input[0]);
-int b = int.Parse(input[1]);
-int c = int.Parse(input[2]);
-int max, min;
+Console.WriteLine(name1[1] == name2[1] ? "ARE Brothers" : "NOT");
 
-if (a > b)
-{
-    max = a;
-    min = b;
-}
-else
-{
-    max = b;
-    min = a;
-}
-
-if (c > max)
-{
-    max = c;
-}
-else if (c < min) { min = c; }
-
-Console.WriteLine($"{min} {max}");
