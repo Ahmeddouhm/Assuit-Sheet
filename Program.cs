@@ -1,9 +1,8 @@
 ﻿string[] input = Console.ReadLine().Split();
+// + * -
+long num1 = long.Parse(input[0]);
+long num2 = long.Parse(input[1]);
 
-// int long char float double 
-
-Console.WriteLine(int.Parse(input[0]));
-Console.WriteLine(long.Parse(input[1]));
-Console.WriteLine(char.Parse(input[2]));
-Console.WriteLine(float.Parse(input[3]));
-Console.WriteLine(double.Parse(input[4]));
+Console.WriteLine($"{num1} + {num2} = {num1 + num2}");
+Console.WriteLine($"{num1} * {num2} = {num1 * num2}");
+Console.WriteLine($"{num1} - {num2} = {num1 - num2}");
