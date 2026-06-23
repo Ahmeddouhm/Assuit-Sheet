@@ -1,32 +1,11 @@
-﻿string[] points = Console.ReadLine().Split();
-double x = double.Parse(points[0]);
-double y = double.Parse(points[1]);
+﻿long ageInDays = long.Parse(Console.ReadLine());
+long days, months, years , livedYears;
 
-if (x == 0 && y == 0)
-{
-    Console.WriteLine("Origem");
-}
-else if (x == 0)
-{
-    Console.WriteLine("Eixo Y");
-}
-else if (y == 0)
-{
-    Console.WriteLine("Eixo X");
-}
-else if (double.IsPositive(x) && double.IsPositive(y))
-{
-    Console.WriteLine("Q1");
-}
-else if (double.IsNegative(x) && double.IsPositive(y))
-{
-    Console.WriteLine("Q2");
-}
-else if (double.IsNegative(x) && double.IsNegative(y))
-{
-    Console.WriteLine("Q3");
-}
-else
-{
-    Console.WriteLine("Q4");
-}
+years = ageInDays / 365;
+livedYears = ageInDays - years * 365;
+months = livedYears / 30;
+days = livedYears - (months * 30);
+
+Console.WriteLine($"{years} years");
+Console.WriteLine($"{months} months");
+Console.WriteLine($"{days} days");
