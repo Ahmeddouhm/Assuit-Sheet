@@ -1,7 +1,20 @@
-﻿float num = float.Parse(Console.ReadLine());
+﻿string input = Console.ReadLine();
+string[] stringNums = input.Split();
+int a = int.Parse(stringNums[0]);
+int b = int.Parse(stringNums[2]);
+char opeartor = char.Parse(stringNums[1]);
 
-int intPart = (int)num;
+if (opeartor == '<')
+{
+    Console.WriteLine(a < b ? "Right" : "Wrong");
+}
+else if (opeartor == '=')
+{
+    Console.WriteLine(a == b ? "Right" : "Wrong");
 
-float fPart = num - intPart;
+}
+else if (opeartor == '>')
+{
+    Console.WriteLine(a > b ? "Right" : "Wrong");
 
-Console.WriteLine(fPart == 0 ? $"int {intPart}" : $"float {intPart} {fPart.ToString("F3")}");
+}
