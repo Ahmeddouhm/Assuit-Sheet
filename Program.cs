@@ -1,26 +1,18 @@
-﻿string input = Console.ReadLine();
-string[] stringNums = input.Split();
+﻿string[] stringNums = Console.ReadLine().Split();
 
-int a = int.Parse(stringNums[0]);
-int b = int.Parse(stringNums[2]);
-int c = int.Parse(stringNums[4]);
+long l1 = long.Parse(stringNums[0]);
+long r1 = long.Parse(stringNums[1]);
+long l2 = long.Parse(stringNums[2]);
+long r2 = long.Parse(stringNums[3]);
 
-char opeartor = char.Parse(stringNums[1]);
+long leftBoundary = Math.Max(l1, l2);
+long rightBoundary = Math.Min(r1, r2);
 
-if (opeartor == '+')
+if (r1 < l2 || r1 < r2)
 {
-    int sum = a + b;
-    Console.WriteLine((sum == c) ? "Yes" : sum);
+    Console.WriteLine("-1");
 }
-else if (opeartor == '-')
+else
 {
-    int diff = a - b;
-    Console.WriteLine(diff == c ? "Yes" : diff);
-
-}
-else if (opeartor == '*')
-{
-    int mtply = a * b;
-    Console.WriteLine(mtply == c ? "Yes" : mtply);
-
+    Console.WriteLine($"{leftBoundary} {rightBoundary}");
 }
