@@ -1,17 +1,7 @@
-﻿string[] numInput = Console.ReadLine().Split();
-long a = long.Parse(numInput[0]);
-long b = long.Parse(numInput[1]);
-long c = long.Parse(numInput[2]);
-long[] arr = { a, b, c };
+﻿float num = float.Parse(Console.ReadLine());
 
-Array.Sort(arr);
+int intPart = (int)num;
 
-Console.WriteLine(arr[0]);
-Console.WriteLine(arr[1]);
-Console.WriteLine(arr[2]);
+float fPart = num - intPart;
 
-Console.WriteLine();
-
-Console.WriteLine(a);
-Console.WriteLine(b);
-Console.WriteLine(c);
+Console.WriteLine(fPart == 0 ? $"int {intPart}" : $"float {intPart} {fPart.ToString("F3")}");
