@@ -1,18 +1,10 @@
 ﻿string[] stringNums = Console.ReadLine().Split();
 
-long l1 = long.Parse(stringNums[0]);
-long r1 = long.Parse(stringNums[1]);
-long l2 = long.Parse(stringNums[2]);
-long r2 = long.Parse(stringNums[3]);
+Int128 a = Int128.Parse(stringNums[0]);
+Int128 b = Int128.Parse(stringNums[1]);
+Int128 c = Int128.Parse(stringNums[2]);
+Int128 d = Int128.Parse(stringNums[3]);
 
-long leftBoundary = Math.Max(l1, l2);
-long rightBoundary = Math.Min(r1, r2);
+string strResult = (a * b * c * d).ToString();
 
-if (r1 < l2 || r1 < r2)
-{
-    Console.WriteLine("-1");
-}
-else
-{
-    Console.WriteLine($"{leftBoundary} {rightBoundary}");
-}
+Console.WriteLine($"{strResult[^2..]}");
