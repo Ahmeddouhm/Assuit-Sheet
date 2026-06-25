@@ -1,17 +1,15 @@
-﻿bool isCorrect = false;
-string password = "1999";
+﻿int itr = int.Parse(Console.ReadLine());
+string[] nums = Console.ReadLine().Split();
 
-do
+int max = 0;
+
+for (int i = 0; i < nums.Length; i++)
 {
-    string inputPassword = Console.ReadLine();
-	if (inputPassword == password)
+    int parsedNum = int.Parse(nums[i]);
+	if (parsedNum > max)
 	{
-		Console.WriteLine("Correct");
-		isCorrect = true;
-	}
-	else
-	{
-        Console.WriteLine("Wrong");
+		max = parsedNum;
 	}
 }
-while (!isCorrect);
+
+Console.WriteLine(max);
