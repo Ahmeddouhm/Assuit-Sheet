@@ -1,15 +1,16 @@
 ﻿int itr = int.Parse(Console.ReadLine());
-string[] nums = Console.ReadLine().Split();
+long factorial = 1;
 
-int max = 0;
-
-for (int i = 0; i < nums.Length; i++)
+for (int j = 0; j < itr; j++)
 {
-    int parsedNum = int.Parse(nums[i]);
-	if (parsedNum > max)
-	{
-		max = parsedNum;
-	}
-}
+    int num = int.Parse(Console.ReadLine());
+    for (int i = num; i > 1; i--)
+    {
+        if (num == 1 || num == 0)
+            break;
 
-Console.WriteLine(max);
+        factorial *= i;
+    }
+    Console.WriteLine(factorial);
+    factorial = 1;
+}
