@@ -1,16 +1,16 @@
-﻿int itr = int.Parse(Console.ReadLine());
-long factorial = 1;
+﻿int num = int.Parse(Console.ReadLine());
 
-for (int j = 0; j < itr; j++)
+Console.WriteLine(isPrime(num) ? "YES" : "NO");
+
+static bool isPrime(int num) 
 {
-    int num = int.Parse(Console.ReadLine());
-    for (int i = num; i > 1; i--)
-    {
-        if (num == 1 || num == 0)
-            break;
+    if (num <= 1)
+        return false;
 
-        factorial *= i;
+    for (int i = 2; i * i <= num; i++)
+    {
+        if (num % i == 0)
+            return false;
     }
-    Console.WriteLine(factorial);
-    factorial = 1;
+    return true;
 }
