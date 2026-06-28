@@ -1,16 +1,23 @@
-﻿int num = int.Parse(Console.ReadLine());
+﻿string inputNum = Console.ReadLine();
+string reversedNum = ReverseString(inputNum);
 
-Console.WriteLine(isPrime(num) ? "YES" : "NO");
+Console.WriteLine(reversedNum.TrimStart('0'));
 
-static bool isPrime(int num) 
+if (inputNum == reversedNum)
 {
-    if (num <= 1)
-        return false;
+    Console.WriteLine("YES");
+}
+else
+{
+    Console.WriteLine("NO");
+}
 
-    for (int i = 2; i * i <= num; i++)
-    {
-        if (num % i == 0)
-            return false;
-    }
-    return true;
+
+
+static string ReverseString(string text) 
+{
+    if (text.Length <= 0)
+        return string.Empty;
+
+    return ReverseString(text.Substring(1)) + text[0];
 }
