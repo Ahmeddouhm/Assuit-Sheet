@@ -1,23 +1,8 @@
-﻿string inputNum = Console.ReadLine();
-string reversedNum = ReverseString(inputNum);
+﻿int num = int.Parse(Console.ReadLine());
 
-Console.WriteLine(reversedNum.TrimStart('0'));
-
-if (inputNum == reversedNum)
+for (int i = 1; i <= num; i++)
 {
-    Console.WriteLine("YES");
-}
-else
-{
-    Console.WriteLine("NO");
-}
+    if (num % i == 0)
+        Console.WriteLine(i);
 
-
-
-static string ReverseString(string text) 
-{
-    if (text.Length <= 0)
-        return string.Empty;
-
-    return ReverseString(text.Substring(1)) + text[0];
 }
