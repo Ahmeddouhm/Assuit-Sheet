@@ -1,5 +1,35 @@
-﻿string[] inputNums = Console.ReadLine().Split();
+﻿using System.Text;
 
-Console.WriteLine(GCD(int.Parse(inputNums[0]), int.Parse(inputNums[1])));
+string[] inputNums = Console.ReadLine().Split();
+long start = long.Parse(inputNums[0]);
+long end = long.Parse(inputNums[1]);
+StringBuilder luckyNums = new();
 
-static int GCD(int a, int b) => b == 0 ? a : GCD(b, a % b);
+for (long i = start; i <= end; i++)
+{
+	string currNum = i.ToString();
+
+	for (int j = 0; j < currNum.Length; j++)
+	{
+		if (currNum[j] != '7' && currNum[j] != '4')
+		{
+			break;
+		}
+		else
+		{
+			if (j == currNum.Length - 1)
+			{
+				luckyNums.Append(i+" ");
+			}
+		}
+	}
+}
+
+if (luckyNums.Length == 0)
+{
+    Console.WriteLine("-1");
+}
+else
+{
+    Console.WriteLine($"{luckyNums}");
+}
