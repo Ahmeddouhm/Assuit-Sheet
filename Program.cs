@@ -1,26 +1,16 @@
 ﻿int num = int.Parse(Console.ReadLine());
 
-
-for (int i = 0; i < num; i++)
+for (int i = 1; i <= num; i++)
 {
-    string[] inputNums = Console.ReadLine().Split();
+	for (int j = num; j > i; j--)
+	{
+        Console.Write(" ");
+	}
 
-    int num1 = int.Parse(inputNums[0]);
-    int num2 = int.Parse(inputNums[1]);
+	for (int k = 1; k <= 2*i-1; k++)
+	{
+        Console.Write("*");
+	}
 
-    int start = Math.Min(num1, num2);
-    int end = Math.Max(num1, num2);
-
-    int sum = 0;
-
-    for (int j = start + 1; j < end; j++)
-    {
-        if (j % 2 != 0)
-        {
-            sum += j;
-        }
-
-    }
-
-    Console.WriteLine($"{sum}");
+    Console.WriteLine();
 }
