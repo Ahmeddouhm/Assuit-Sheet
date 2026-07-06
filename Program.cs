@@ -1,10 +1,19 @@
 ﻿int itr = int.Parse(Console.ReadLine());
 
-for (int j = itr; j > 0; j--)
+for (int i = 0; i < itr; i++)
 {
-    for (int i = j; i > 0; i--)
+    string inputNums = Console.ReadLine();
+    ReverseString(inputNums);
+}
+
+static void ReverseString(string str) 
+{
+    char[] chars = str.Reverse().ToArray();
+
+    foreach (var digit in chars)
     {
-        Console.Write("*");
+        Console.Write($"{digit} ");
     }
     Console.WriteLine();
+
 }
