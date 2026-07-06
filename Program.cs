@@ -1,19 +1,28 @@
-﻿int itr = int.Parse(Console.ReadLine());
+﻿using System.Text;
 
-for (int i = 0; i < itr; i++)
+while (true)
 {
-    string inputNums = Console.ReadLine();
-    ReverseString(inputNums);
-}
+    string[] inputNums = Console.ReadLine().Split();
 
-static void ReverseString(string str) 
-{
-    char[] chars = str.Reverse().ToArray();
+    int num1 = int.Parse(inputNums[0]);
+    int num2 = int.Parse(inputNums[1]);
+    StringBuilder numsInBetween = new();
 
-    foreach (var digit in chars)
+    if (num1 <= 0 || num2 <= 0)
+        break;
+
+    int start = Math.Min(num1,num2);
+    int end = Math.Max(num1,num2);
+
+    for (int i = start; i <= end; i++)
     {
-        Console.Write($"{digit} ");
+        numsInBetween.Append(i+" ");
     }
-    Console.WriteLine();
 
+    int sum = 0;
+
+    for (int i = start; i <= end; i++)
+        sum += i;
+
+    Console.WriteLine($"{numsInBetween.ToString()}sum ={sum}");
 }
