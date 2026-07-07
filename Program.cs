@@ -1,16 +1,33 @@
-﻿int num = int.Parse(Console.ReadLine());
+﻿string[] inputNums = Console.ReadLine().Split();
 
-for (int i = 1; i <= num; i++)
+int n = int.Parse(inputNums[0]);
+int a = int.Parse(inputNums[1]);
+int b = int.Parse(inputNums[2]);
+int sum = 0;
+
+for (int i = a; i <= n; i++)
 {
-	for (int j = num; j > i; j--)
-	{
-        Console.Write(" ");
-	}
+    int sumOfDigits = SumOfDigits(i);
 
-	for (int k = 1; k <= 2*i-1; k++)
-	{
-        Console.Write("*");
-	}
+    if (sumOfDigits >= a && sumOfDigits <= b)
+    {
+        sum += i;
+    } 
+}
 
-    Console.WriteLine();
+Console.WriteLine(sum);
+
+static int SumOfDigits(int num) 
+{
+    string strNum = num.ToString();
+    int sum = 0;
+
+    for (int i = 0; i < strNum.Length; i++)
+    {
+        int lastDigit = num % 10;
+        num /= 10;
+        sum += lastDigit;
+    }
+
+    return sum;
 }
