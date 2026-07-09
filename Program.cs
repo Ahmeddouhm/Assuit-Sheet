@@ -1,31 +1,20 @@
-﻿int num = int.Parse(Console.ReadLine());
+﻿using System.Text;
 
-for (int i = 1; i <= num; i++)
+int itr = int.Parse(Console.ReadLine());
+
+for (int i = 0; i < itr; i++)
 {
-    for (int j = num; j > i; j--)
+    StringBuilder onesInBinary = new();
+
+    int dec = int.Parse(Console.ReadLine());
+
+    string binary = Convert.ToString(dec, 2);
+
+    for (int j = 0; j < binary.Length; j++)
     {
-        Console.Write(" ");
+        if (binary[j] == '1')
+            onesInBinary.Append("1");
     }
 
-    for (int k = 1; k <= 2 * i - 1; k++)
-    {
-        Console.Write("*");
-    }
-
-    Console.WriteLine();
-}
-
-for (int i = num; i >= 1; i--)
-{
-    for (int j = i; j < num; j++)
-    {
-        Console.Write(" ");
-    }
-
-    for (int k = 2 * i - 1; k >= 1; k--)
-    {
-        Console.Write("*");
-    }
-
-    Console.WriteLine();
+    Console.WriteLine(Convert.ToInt32(onesInBinary.ToString(),2));
 }
