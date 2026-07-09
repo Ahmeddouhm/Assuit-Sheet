@@ -1,11 +1,23 @@
 ﻿int itr = int.Parse(Console.ReadLine());
 string[] nums = Console.ReadLine().Split();
-long summation = 0;
+string key = Console.ReadLine();
+bool isFound = false;
+int counter = 0;
 
-for (int i = 0; i < itr; i++)
+while (!isFound)
 {
-    long currNum = long.Parse(nums[i]);
-    summation += currNum;
-}
+	if (counter == nums.Length && !isFound)
+	{
+        Console.WriteLine(-1);
+		break;
+	}
 
-Console.WriteLine(Math.Abs(summation));
+	if (key == nums[counter])
+	{
+        Console.WriteLine(counter);
+		isFound = true;
+	}
+
+
+	counter++;
+}
