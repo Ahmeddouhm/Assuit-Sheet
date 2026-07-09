@@ -1,9 +1,13 @@
-﻿int n = int.Parse(Console.ReadLine());
+﻿string[] nums = Console.ReadLine().Split();
+int k = int.Parse(nums[0]), s = int.Parse(nums[1]), counter = 0;
 
-int a = 0, b = 1;
-for (int i = 0; i < n; i++)
+for (int i = 0; i <= k; i++)
 {
-    int res = a + b;
-    Console.Write($"{a} ");
-    (a, b) = (b, res);
+	for (int j = 0; j <= k; j++)
+	{
+		if (s - i - j >= 0 && s - i - j <= k)
+			counter++;
+	}
 }
+
+Console.WriteLine(counter);
