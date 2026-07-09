@@ -1,20 +1,9 @@
-﻿using System.Text;
+﻿int n = int.Parse(Console.ReadLine());
 
-int itr = int.Parse(Console.ReadLine());
-
-for (int i = 0; i < itr; i++)
+int a = 0, b = 1;
+for (int i = 0; i < n; i++)
 {
-    StringBuilder onesInBinary = new();
-
-    int dec = int.Parse(Console.ReadLine());
-
-    string binary = Convert.ToString(dec, 2);
-
-    for (int j = 0; j < binary.Length; j++)
-    {
-        if (binary[j] == '1')
-            onesInBinary.Append("1");
-    }
-
-    Console.WriteLine(Convert.ToInt32(onesInBinary.ToString(),2));
+    int res = a + b;
+    Console.Write($"{a} ");
+    (a, b) = (b, res);
 }
