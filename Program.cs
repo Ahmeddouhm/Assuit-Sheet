@@ -5,15 +5,8 @@ for (int i = 0; i < itr; i++)
 {
     int currNum = int.Parse(nums[i]);
 
-	if (currNum > 0)
+	if (currNum <= 10)
 	{
-		nums[i] = "1";
+        Console.WriteLine($"A[{i}] = {currNum}");
 	}
-
-	if (currNum < 0)
-	{
-		nums[i] = "2";
-	}
-	Console.Write($"{nums[i]} ");
 }
-
