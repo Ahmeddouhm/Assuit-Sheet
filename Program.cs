@@ -1,23 +1,19 @@
 ﻿int itr = int.Parse(Console.ReadLine());
 string[] nums = Console.ReadLine().Split();
-string key = Console.ReadLine();
-bool isFound = false;
-int counter = 0;
 
-while (!isFound)
+for (int i = 0; i < itr; i++)
 {
-	if (counter == nums.Length && !isFound)
+    int currNum = int.Parse(nums[i]);
+
+	if (currNum > 0)
 	{
-        Console.WriteLine(-1);
-		break;
+		nums[i] = "1";
 	}
 
-	if (key == nums[counter])
+	if (currNum < 0)
 	{
-        Console.WriteLine(counter);
-		isFound = true;
+		nums[i] = "2";
 	}
-
-
-	counter++;
+	Console.Write($"{nums[i]} ");
 }
+
