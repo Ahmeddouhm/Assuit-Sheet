@@ -1,7 +1,13 @@
 ﻿int itr = int.Parse(Console.ReadLine());
 string[] nums = Console.ReadLine().Split();
 
-for (int i = nums.Length - 1; i >= 0; i--)
+for (int i = 0; i < nums.Length/2; i++)
 {
-    Console.Write($"{nums[i]} ");
+	if (nums[i] != nums[nums.Length - i - 1])
+	{
+        Console.WriteLine("NO");
+		return;
+	}
+
 }
+    Console.WriteLine("YES");
