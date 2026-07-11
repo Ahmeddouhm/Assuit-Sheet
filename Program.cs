@@ -1,16 +1,7 @@
 ﻿int itr = int.Parse(Console.ReadLine());
 string[] nums = Console.ReadLine().Split();
-int min = int.MaxValue , idx = int.MinValue;
 
-for (int i = 0; i < itr; i++)
+for (int i = nums.Length - 1; i >= 0; i--)
 {
-    int currNum = int.Parse(nums[i]);
-
-	if (currNum < min)
-	{
-		min = currNum;
-		idx = i + 1;
-	}
+    Console.Write($"{nums[i]} ");
 }
-
-Console.WriteLine($"{min} {idx}");
