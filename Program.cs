@@ -1,31 +1,27 @@
-﻿int cases = int.Parse(Console.ReadLine());
+﻿int itr = int.Parse(Console.ReadLine());
+string[] nums = Console.ReadLine().Split();
+long[] arr = new long[itr];
 
-while (cases > 0)
+for (long i = 0; i < itr; i++)
 {
-    int itr = int.Parse(Console.ReadLine());
-    string[] nums = Console.ReadLine().Split();
-    long[] arr = new long[itr];
-    long min = int.MaxValue;
-
-    for (long i = 0; i < itr; i++)
-    {
-        arr[i] = long.Parse(nums[i]);
-    }
-
-    for (int i = 0; i < itr; i++)
-    {
-
-        for (int j = i + 1; j < itr; j++)
-        {
-            long result = arr[i] + arr[j] + j - i;
-            if (result < min)
-            {
-                min = result;
-            }
-        }
-
-    }
-
-    Console.WriteLine(min);
-    cases--;
+    arr[i] = long.Parse(nums[i]);
 }
+
+long min = arr[0];
+int minFreq = 1;
+
+
+for (int i = 1; i < itr; i++)
+{
+    if (arr[i] < min)
+    {
+        min = arr[i];
+        minFreq = 1;
+    }
+    else if (arr[i] == min)
+    {
+        minFreq++;
+    }
+}
+
+Console.WriteLine(minFreq % 2 == 0 ? "Unlucky" : "Lucky");
