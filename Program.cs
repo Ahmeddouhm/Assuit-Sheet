@@ -1,24 +1,25 @@
-﻿string[] numsInput = Console.ReadLine().Split();
-int a = int.Parse(numsInput[0]);
-int b = int.Parse(numsInput[1]);
-string input = Console.ReadLine();
+﻿int num = int.Parse(Console.ReadLine());
+Fibonacci fibonacci = new();
+Console.WriteLine(fibonacci.Calculate(num));
 
-if (input[a] != '-')
+
+class Fibonacci 
 {
-    Console.WriteLine("No");
-    return;
-}
-
-for (int i = 0; i < input.Length; i++)
-{
-    if (char.IsDigit(input[i]))
-        continue;
-
-    if (i != a)
+    Dictionary<long, long> cache = new Dictionary<long, long>()
     {
-        Console.WriteLine("No");
-        return;
+        [1] = 0,
+        [2] = 1
+    };
+
+    public long Calculate(long n)
+    {
+        if (cache.TryGetValue(n, out long value))
+        {
+            return value;
+        }
+
+        cache[n] = Calculate(n - 1) + Calculate(n - 2);
+
+        return cache[n];
     }
 }
-
-Console.WriteLine("Yes");
