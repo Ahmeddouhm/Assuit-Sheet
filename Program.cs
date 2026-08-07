@@ -1,25 +1,22 @@
 ﻿int num = int.Parse(Console.ReadLine());
-Fibonacci fibonacci = new();
-Console.WriteLine(fibonacci.Calculate(num));
+string[] input = Console.ReadLine().Split();
+double[] arr = Array.ConvertAll(input, double.Parse);
 
+int operations = 0;
+bool validOperation = true;
 
-class Fibonacci 
+while (validOperation)
 {
-    Dictionary<long, long> cache = new Dictionary<long, long>()
-    {
-        [1] = 0,
-        [2] = 1
-    };
-
-    public long Calculate(long n)
-    {
-        if (cache.TryGetValue(n, out long value))
-        {
-            return value;
-        }
-
-        cache[n] = Calculate(n - 1) + Calculate(n - 2);
-
-        return cache[n];
-    }
+	for (int i = 0; i < arr.Length; i++)
+	{
+		if (arr[i] % 2 != 0)
+		{
+			validOperation = false;
+			break;
+		}
+		arr[i] /= 2;
+	}
+	operations++;
 }
+
+Console.WriteLine(operations - 1 < 0 ? 0 : operations - 1);
