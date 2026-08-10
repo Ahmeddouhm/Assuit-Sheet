@@ -1,21 +1,35 @@
-﻿int len = int.Parse(Console.ReadLine());
+﻿string[] input = Console.ReadLine().Split();
+int row = int.Parse(input[0]), col = int.Parse(input[1]);
 
-string[] input = Console.ReadLine().Split();
-long[] arr = Array.ConvertAll(input, long.Parse);
+int[,] jgd = new int[row,col];
+bool found = false;
 
-string[] input2 = Console.ReadLine().Split();
-long[] arr2 = Array.ConvertAll(input2, long.Parse);
-
-int counter = 0;
-
-for (int i = 0; i < len; i++)
+for (int i = 0; i < row; i++)
 {
-	if (arr2.Contains(arr[i]))
+    string[] rowInput = Console.ReadLine().Split();
+
+    for (int j = 0; j < col; j++)
 	{
-        int arrayIndex = Array.IndexOf(arr2, arr[i]);
-        arr2[arrayIndex] = 0;
-		counter++;
+		jgd[i, j] = int.Parse(rowInput[j]);
 	}
 }
 
-Console.WriteLine(counter == len ? "yes" : "no");
+int key = int.Parse(Console.ReadLine());
+
+for (int i = 0; i < row; i++)
+{
+	for (int j = 0; j < col; j++)
+	{
+		if (jgd[i,j] == key)
+		{
+			Console.WriteLine("will not take number");
+			found = true;
+			return;
+		}
+	}
+}
+
+if (!found)
+{
+	Console.WriteLine("will take number");
+}
