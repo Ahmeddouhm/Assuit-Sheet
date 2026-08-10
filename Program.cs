@@ -1,4 +1,5 @@
-﻿string[] input = Console.ReadLine().Split();
+﻿// I thought about searching in 1D array, but nah i choosed that way
+string[] input = Console.ReadLine().Split();
 int row = int.Parse(input[0]), col = int.Parse(input[1]);
 
 int[,] jgd = new int[row,col];
