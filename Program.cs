@@ -14,18 +14,9 @@ int sumPrimaryDiagonal = 0, sumSecondaryDiagonal = 0;
 
 for (int i = 0; i < arr.GetLength(0); i++)
 {
-    for (int j = 0; j < arr.GetLength(0); j++)
-    {
-		if (i == j)
-		{
-			sumPrimaryDiagonal += arr[i, j];
-		}
+	sumPrimaryDiagonal += arr[i, i];
 
-		if (i + j == n-1)
-		{
-			sumSecondaryDiagonal += arr[i, j];
-        }
-    }
+	sumSecondaryDiagonal += arr[i, n - 1 - i];
 }
 
 Console.WriteLine(Math.Abs(sumPrimaryDiagonal-sumSecondaryDiagonal));
