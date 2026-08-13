@@ -1,36 +1,31 @@
-﻿// I thought about searching in 1D array, but nah i choosed that way
-string[] input = Console.ReadLine().Split();
-int row = int.Parse(input[0]), col = int.Parse(input[1]);
+﻿int n = int.Parse(Console.ReadLine());
+int[,] arr = new int[n, n];
 
-int[,] jgd = new int[row,col];
-bool found = false;
-
-for (int i = 0; i < row; i++)
+for (int i = 0; i < arr.GetLength(0); i++)
 {
-    string[] rowInput = Console.ReadLine().Split();
-
-    for (int j = 0; j < col; j++)
+    string[] input = Console.ReadLine().Split();
+	for (int j = 0; j < arr.GetLength(1); j++)
 	{
-		jgd[i, j] = int.Parse(rowInput[j]);
+		arr[i, j] = int.Parse(input[j]);
 	}
 }
 
-int key = int.Parse(Console.ReadLine());
+int sumPrimaryDiagonal = 0, sumSecondaryDiagonal = 0;
 
-for (int i = 0; i < row; i++)
+for (int i = 0; i < arr.GetLength(0); i++)
 {
-	for (int j = 0; j < col; j++)
-	{
-		if (jgd[i,j] == key)
+    for (int j = 0; j < arr.GetLength(0); j++)
+    {
+		if (i == j)
 		{
-			Console.WriteLine("will not take number");
-			found = true;
-			return;
+			sumPrimaryDiagonal += arr[i, j];
 		}
-	}
+
+		if (i + j == n-1)
+		{
+			sumSecondaryDiagonal += arr[i, j];
+        }
+    }
 }
 
-if (!found)
-{
-	Console.WriteLine("will take number");
-}
+Console.WriteLine(Math.Abs(sumPrimaryDiagonal-sumSecondaryDiagonal));
