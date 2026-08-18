@@ -1,22 +1,17 @@
-﻿int n = int.Parse(Console.ReadLine());
-int[,] arr = new int[n, n];
+﻿string[] len = Console.ReadLine().Split();
 
-for (int i = 0; i < arr.GetLength(0); i++)
+string[] arr = Console.ReadLine().Split();
+
+string[] sub = Console.ReadLine().Split();
+
+int index = 0;
+
+for (int i = 0; i < arr.Length && index < sub.Length; i++)
 {
-    string[] input = Console.ReadLine().Split();
-	for (int j = 0; j < arr.GetLength(1); j++)
+	if (sub[index] == arr[i])
 	{
-		arr[i, j] = int.Parse(input[j]);
+		index++;
 	}
 }
 
-int sumPrimaryDiagonal = 0, sumSecondaryDiagonal = 0;
-
-for (int i = 0; i < arr.GetLength(0); i++)
-{
-	sumPrimaryDiagonal += arr[i, i];
-
-	sumSecondaryDiagonal += arr[i, n - 1 - i];
-}
-
-Console.WriteLine(Math.Abs(sumPrimaryDiagonal-sumSecondaryDiagonal));
+Console.WriteLine(index == sub.Length ? "YES" : "NO");
