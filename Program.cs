@@ -1,17 +1,21 @@
 ﻿string[] len = Console.ReadLine().Split();
 
+int arrLen = int.Parse(len[0]);
+int maxNum = int.Parse(len[1]);
+
 string[] arr = Console.ReadLine().Split();
 
-string[] sub = Console.ReadLine().Split();
+int[] ints = Array.ConvertAll(arr, int.Parse);
 
-int index = 0;
+int[] frq = new int[maxNum+1];
 
-for (int i = 0; i < arr.Length && index < sub.Length; i++)
+for (int i = 0; i < arrLen; i++)
 {
-	if (sub[index] == arr[i])
-	{
-		index++;
-	}
+    int index = ints[i];
+    frq[index]++;
 }
 
-Console.WriteLine(index == sub.Length ? "YES" : "NO");
+for (int i = 1; i < frq.Length; i++)
+{
+    Console.WriteLine(frq[i]);
+}
