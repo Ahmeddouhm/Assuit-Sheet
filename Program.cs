@@ -1,21 +1,43 @@
 ﻿string[] len = Console.ReadLine().Split();
 
-int arrLen = int.Parse(len[0]);
-int maxNum = int.Parse(len[1]);
+int row = int.Parse(len[0]);
+int col = int.Parse(len[1]);
 
-string[] arr = Console.ReadLine().Split();
+char[,] arr = new char[row, col];
 
-int[] ints = Array.ConvertAll(arr, int.Parse);
-
-int[] frq = new int[maxNum+1];
-
-for (int i = 0; i < arrLen; i++)
+for (int i = 0; i < arr.GetLength(0); i++)
 {
-    int index = ints[i];
-    frq[index]++;
+    string input = Console.ReadLine() ?? "";
+
+    for (int j = 0; j < arr.GetLength(1); j++)
+    {
+        arr[i, j] = input[j];
+    }
 }
 
-for (int i = 1; i < frq.Length; i++)
+string[] pos = Console.ReadLine().Split();
+
+int r = int.Parse(pos[0]);
+int c = int.Parse(pos[1]);
+r--;
+c--;
+
+try
 {
-    Console.WriteLine(frq[i]);
+    if (arr[r,c-1] != '.' && arr[r,c+1] != '.' &&
+        arr[r-1,c] != '.' && arr[r+1,c] != '.' &&
+        arr[r-1,c-1] != '.' && arr[r-1,c+1] != '.' &&
+        arr[r+1,c+1] != '.' && arr[r+1,c-1] != '.' )
+    {
+        Console.WriteLine("yes");
+    }
+    else
+    {
+        Console.WriteLine("no");
+    }
 }
+catch (Exception ex)
+{
+    Console.WriteLine("yes");
+}
+
