@@ -1,43 +1,35 @@
-﻿string[] len = Console.ReadLine().Split();
+﻿string[] input = Console.ReadLine().Split();
 
-int row = int.Parse(len[0]);
-int col = int.Parse(len[1]);
+int len = int.Parse(input[0]);
+int itr = int.Parse(input[1]);
 
-char[,] arr = new char[row, col];
+string[] arrayInput = Console.ReadLine().Split();
+long[] arr = Array.ConvertAll(arrayInput, long.Parse);
+List<long> longs = new();
+long sum = 0;
 
-for (int i = 0; i < arr.GetLength(0); i++)
+for (int i = 0; i < arr.Length; i++)
 {
-    string input = Console.ReadLine() ?? "";
+	sum += arr[i];
+	
 
-    for (int j = 0; j < arr.GetLength(1); j++)
-    {
-        arr[i, j] = input[j];
-    }
+	longs.Add(sum);
 }
 
-string[] pos = Console.ReadLine().Split();
 
-int r = int.Parse(pos[0]);
-int c = int.Parse(pos[1]);
-r--;
-c--;
-
-try
+for (int i = 0; i < itr; i++)
 {
-    if (arr[r,c-1] != '.' && arr[r,c+1] != '.' &&
-        arr[r-1,c] != '.' && arr[r+1,c] != '.' &&
-        arr[r-1,c-1] != '.' && arr[r-1,c+1] != '.' &&
-        arr[r+1,c+1] != '.' && arr[r+1,c-1] != '.' )
-    {
-        Console.WriteLine("yes");
-    }
-    else
-    {
-        Console.WriteLine("no");
-    }
-}
-catch (Exception ex)
-{
-    Console.WriteLine("yes");
-}
+    string[] inputLR = Console.ReadLine().Split();
 
+    int l = int.Parse(inputLR[0]) - 1;
+    int r = int.Parse(inputLR[1]) - 1;
+
+	if (l-1 < 0)
+	{
+		Console.WriteLine(longs[r]);
+	}
+	else
+	{
+		Console.WriteLine(longs[r] - longs[l-1]);
+	}
+}
