@@ -5,31 +5,35 @@ int itr = int.Parse(input[1]);
 
 string[] arrayInput = Console.ReadLine().Split();
 long[] arr = Array.ConvertAll(arrayInput, long.Parse);
-List<long> longs = new();
-long sum = 0;
-
-for (int i = 0; i < arr.Length; i++)
-{
-	sum += arr[i];
-	
-
-	longs.Add(sum);
-}
-
 
 for (int i = 0; i < itr; i++)
 {
-    string[] inputLR = Console.ReadLine().Split();
+    long inputLR = long.Parse(Console.ReadLine());
 
-    int l = int.Parse(inputLR[0]) - 1;
-    int r = int.Parse(inputLR[1]) - 1;
-
-	if (l-1 < 0)
-	{
-		Console.WriteLine(longs[r]);
-	}
+    if (BinarySearch(arr, inputLR))
+        Console.WriteLine("found");
 	else
+        Console.WriteLine("not found");
+	
+}
+
+bool BinarySearch(long[] arr, long key) 
+{
+	long low = 0, high = arr.Length - 1;
+
+	while (low <= high)
 	{
-		Console.WriteLine(longs[r] - longs[l-1]);
+		long mid = low + (high - low) / 2;
+
+		if (arr[mid] == key)
+			return true;
+
+		if (arr[mid] < key)
+			low = mid + 1;
+		else
+			high = mid - 1;
+
 	}
+
+	return false;
 }
