@@ -1,24 +1,23 @@
-﻿string input1 = Console.ReadLine() ?? "";
+﻿using System.Text;
+
+string input1 = Console.ReadLine() ?? "";
 string input2 = Console.ReadLine() ?? "";
 
-int len = Math.Min(input1.Length, input2.Length);
+Console.WriteLine($"{input1.Length} {input2.Length}");
 
-for (int i = 0; i < len; i++)
+Console.WriteLine($"{input1}{input2}");
+
+Console.WriteLine(Swap(input1, input2));
+
+string Swap(string s1, string s2) 
 {
-	if (input1[i] > input2[i])
-	{
-		Console.WriteLine(input2);
-		return;
-	}
+    char[] chars1 = s1.ToCharArray();
+    char[] chars2 = s2.ToCharArray();
 
-	if (input1[i] < input2[i])
-	{
-		Console.WriteLine(input1);
-		return;
-	}
+    (chars1[0], chars2[0]) = (chars2[0], chars1[0]);
+
+    string output1 = new(chars1);
+    string output2 = new(chars2);
+
+    return $"{output1} {output2}";
 }
-
-if (input1.Length > input2.Length)
-    Console.WriteLine(input2);
-else
-    Console.WriteLine(input1);
