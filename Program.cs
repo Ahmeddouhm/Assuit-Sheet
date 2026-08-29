@@ -1,12 +1,24 @@
 ﻿using System.Text;
 
-string input1 = Console.ReadLine() ?? "";
+string input = (Console.ReadLine() ?? "");
+var sb = new StringBuilder(input);
 
-long count = 0;
-
-for (int i = 0; i < input1.Length; i++)
+for (int i = 0; i < input.Length; i++)
 {
-    count += input1[i] - '0';
+	if (sb[i] == ',')
+	{
+		sb[i] = ' ';
+	}
+
+	if (char.IsUpper(sb[i]))
+	{
+		sb[i] = char.ToLower(sb[i]);
+	}
+
+	if (char.IsLower(input[i]))
+	{
+		sb[i] = char.ToUpper(sb[i]);
+	}
 }
 
-Console.WriteLine(count);
+Console.WriteLine(sb.ToString());
