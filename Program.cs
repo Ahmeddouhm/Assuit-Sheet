@@ -1,24 +1,16 @@
-﻿using System.Text;
+﻿int itrs = int.Parse(Console.ReadLine() ?? "");
 
-string input = (Console.ReadLine() ?? "");
-var sb = new StringBuilder(input);
-
-for (int i = 0; i < input.Length; i++)
+for (int i = 0; i < itrs; i++)
 {
-	if (sb[i] == ',')
-	{
-		sb[i] = ' ';
-	}
+    string s = Console.ReadLine() ?? "";
 
-	if (char.IsUpper(sb[i]))
+	if (s.Contains("010") || s.Contains("101"))
 	{
-		sb[i] = char.ToLower(sb[i]);
+        Console.WriteLine("Good");
 	}
-
-	if (char.IsLower(input[i]))
+	else
 	{
-		sb[i] = char.ToUpper(sb[i]);
+	    Console.WriteLine("Bad");
 	}
+	
 }
-
-Console.WriteLine(sb.ToString());
