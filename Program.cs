@@ -1,16 +1,13 @@
-﻿int itrs = int.Parse(Console.ReadLine() ?? "");
+﻿string s = Console.ReadLine() ?? "";
 
-for (int i = 0; i < itrs; i++)
+for (int i = 0; i < s.Length/2; i++)
 {
-    string s = Console.ReadLine() ?? "";
-
-	if (s.Contains("010") || s.Contains("101"))
+	if (s[i] != s[s.Length - 1 - i])
 	{
-        Console.WriteLine("Good");
-	}
-	else
-	{
-	    Console.WriteLine("Bad");
+        Console.WriteLine("NO");
+		return;
 	}
 	
 }
+
+Console.WriteLine("YES");
