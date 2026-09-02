@@ -1,13 +1,18 @@
-﻿string s = Console.ReadLine() ?? "";
+﻿long[] count = new long[26];
 
-for (int i = 0; i < s.Length/2; i++)
+int c;
+while ((c = Console.Read()) != -1)
 {
-	if (s[i] != s[s.Length - 1 - i])
+	if (c >= 'a' && c <= 'z')
 	{
-        Console.WriteLine("NO");
-		return;
+		count[c - 'a']++;
 	}
-	
 }
 
-Console.WriteLine("YES");
+for (int i = 0; i < 26; i++)
+{
+	if (count[i] > 0)
+		Console.WriteLine($"{(char)(i + 'a')} : {count[i]}");
+
+}
+
