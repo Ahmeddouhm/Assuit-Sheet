@@ -1,22 +1,24 @@
-﻿using System.Text;
-
+﻿long[] count = new long[26];
 int itrs = int.Parse(Console.ReadLine() ?? "");
-string s = (Console.ReadLine() ?? "");
-var sb = new StringBuilder();
 
-for (int i = 0; i < itrs; i++)
+int c;
+while (itrs > 0)
 {
-	if (i == 0)
-	{
-		sb.Append(s[i]);
-		continue;
-	}
-
-	char lastChar = s[i - 1];
-	if (s[i] != lastChar)
-	{
-		sb.Append(s[i]);
-	}
+    c = Console.Read();
+    if (c >= 'a' && c <= 'z')
+    {
+        count[c - 'a']++;
+    }
+    itrs--;
 }
 
-Console.WriteLine(sb.Length);
+for (int i = 0; i < count.Length; i++)
+{
+    for (int j = 0; j < count[i]; j++)
+    {
+        if (count[i] > 0)
+        {
+            Console.Write((char)(i + 'a'));
+        }
+    }
+}
