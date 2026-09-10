@@ -1,4 +1,4 @@
-﻿string s = (Console.ReadLine() ?? "");//.Split();
+﻿string s = (Console.ReadLine() ?? "");
 
 int count = 1;
 bool flag = true;
