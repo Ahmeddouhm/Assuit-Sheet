@@ -1,24 +1,22 @@
-﻿long[] count = new long[26];
-int itrs = int.Parse(Console.ReadLine() ?? "");
+﻿string s = (Console.ReadLine() ?? "");//.Split();
 
-int c;
-while (itrs > 0)
+int count = 1;
+bool flag = true;
+
+for (int i = 1; i < s.Length; i++)
 {
-    c = Console.Read();
-    if (c >= 'a' && c <= 'z')
-    {
-        count[c - 'a']++;
-    }
-    itrs--;
+	if (char.IsLetter(s[i]))
+	{
+		if (!flag)
+		{
+			count++;
+			flag = true;
+		}
+	}
+	else
+	{
+		flag = false;
+	}
 }
 
-for (int i = 0; i < count.Length; i++)
-{
-    for (int j = 0; j < count[i]; j++)
-    {
-        if (count[i] > 0)
-        {
-            Console.Write((char)(i + 'a'));
-        }
-    }
-}
+Console.WriteLine(count);
