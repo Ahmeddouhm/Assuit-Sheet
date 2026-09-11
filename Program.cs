@@ -1,22 +1,14 @@
-﻿string s = (Console.ReadLine() ?? "");
+﻿string[] s = (Console.ReadLine() ?? "").Split();
 
-int count = 1;
-bool flag = true;
-
-for (int i = 1; i < s.Length; i++)
+for (int i = 0; i < s.Length; i++)
 {
-	if (char.IsLetter(s[i]))
-	{
-		if (!flag)
-		{
-			count++;
-			flag = true;
-		}
-	}
-	else
-	{
-		flag = false;
-	}
+    for (int j = s[i].Length - 1; j >= 0; j--)
+    {
+        string currString = s[i];
+        Console.Write($"{currString[j]}");
+    }
+    if (i != s.Length - 1)
+    {
+        Console.Write(" ");
+    }
 }
-
-Console.WriteLine(count);
