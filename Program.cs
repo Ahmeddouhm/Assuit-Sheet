@@ -1,46 +1,27 @@
 ﻿using System.Text;
-string num = Console.ReadLine() ?? "";
-StringBuilder s = new (Console.ReadLine() ?? "");
-int score = 0;
+string s = new (Console.ReadLine() ?? "");
+int balance = 0, start = 0;
+List<string> balancedStrings = new();
 
 for (int i = 0; i < s.Length; i++)
 {
-	switch (s[i])
+	if (s[i] == 'R')
 	{
-		case 'V':
-			score += 5;
-			break;
-		case 'W':
-			score += 2;
-			break;
-		case 'X':
-			if (i < s.Length-1)
-				i++;
-			break;
-		case 'Y':
-			if (i < s.Length-1)
-			{
-				char nextChar = s[i + 1];
-				s.Append(nextChar);
-				i++;
-			}
-			break;
-		case 'Z':
-			if (i < s.Length-1)
-			{
-				if (s[i+1] == 'V')
-				{
-					score /= 5;
-					i++;
-				}
-				else if (s[i + 1] == 'W')
-				{
-					score /= 2;
-					i++;
-				}
-			}
-			break;
+		balance++;
+	}
+	else
+	{
+		balance--;
+	}
+
+	if (balance == 0)
+	{
+		balancedStrings.Add(s.Substring(start, i - start + 1));
+		start = i + 1;
 	}
 }
-
-Console.WriteLine(score);
+Console.WriteLine(balancedStrings.Count);
+foreach (var balancedStr in balancedStrings)
+{
+    Console.WriteLine(balancedStr);
+}
