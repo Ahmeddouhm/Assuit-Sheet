@@ -1,16 +1,17 @@
-﻿string s = new (Console.ReadLine() ?? "");
+﻿string s = (Console.ReadLine() ?? "").ToLower();
+int[] frqArr = new int[5];
 
-int questionMarkIndex = s.IndexOf('?');
-string[] parameters = s.Substring(questionMarkIndex + 1).Split('&');
+for (int i = 0; i < s.Length; i++)
+{
+	foreach (var c in s)
+	{
+		int idx = "egypt".IndexOf(c);
 
-string username = parameters[0].Substring(9);
-string pwd = parameters[1].Substring(4);
-string profile = parameters[2].Substring(8);
-string role = parameters[3].Substring(5);
-string key = parameters[4].Substring(4);
+		if (idx != -1)
+		{
+			frqArr[idx]++;
+		}
+	}
+}
 
-Console.WriteLine($"username: {username}");
-Console.WriteLine($"pwd: {pwd}");
-Console.WriteLine($"profile: {profile}");
-Console.WriteLine($"role: {role}");
-Console.WriteLine($"key: {key}");
+Console.WriteLine(frqArr.Min());
