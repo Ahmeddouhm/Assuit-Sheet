@@ -1,21 +1,28 @@
-﻿using System.Text;
+﻿string s = Console.ReadLine() ?? "";
+string res = "";
+List<string> strings = new();
 
-string org = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-string key = "PgEfTYaWGHjDAmxQqFLRpCJBownyUKZXkbvzIdshurMilNSVOtec#@_!=.+-*/";
-
-string option = Console.ReadLine() ?? "";
-string s = Console.ReadLine() ?? "";
-
-var sb = new StringBuilder();
-
-string from = option == "1" ? org : key;
-string to = option == "1" ? key : org;
-
-for (int i = 0; i < s.Length; i++)
+if (s.Length == 1)
 {
-    int idxOfS = from.IndexOf(s[i]);
-
-    sb.Append(to[idxOfS]);
+    Console.WriteLine(s);
+    return;
 }
 
-Console.WriteLine(sb.ToString());
+for (int i = 0; i < s.Length - 1; i++)
+{
+    string subStr1 = s[..(i+1)];
+    string subStr2 = s[(i + 1)..];
+
+    char[] sub1 = subStr1.ToCharArray();
+    char[] sub2 = subStr2.ToCharArray();
+
+    Array.Sort(sub1);
+    Array.Sort(sub2);
+
+    string s1 = new string(sub1);
+    string s2 = new string(sub2);
+    res = s1 + s2;
+    strings.Add(res);
+}
+
+Console.WriteLine(strings.Min());
