@@ -1,15 +1,21 @@
-﻿long s = long.Parse(Console.ReadLine() ?? "");
-Console.WriteLine(Wonderful_Num(s) ? "YES" : "NO");
-bool Wonderful_Num(long num)
-{
-	string binary = Convert.ToString(num, 2);
-	bool isPalindrome = true;
+﻿int itrs = int.Parse(Console.ReadLine() ?? "");
 
-	for (int i = 0; i < binary.Length/2; i++)
+while (itrs -- > 0)
+{
+	long s = long.Parse(Console.ReadLine() ?? "");
+
+	Console.WriteLine(IsPrime(s) ? "YES" : "NO");
+}
+bool IsPrime(long num)
+{
+	if (num <= 1)
+		return false;
+
+	for (int i = 2; i*i <= num; i++)
 	{
-		if (binary[i] != binary[binary.Length - 1 - i])
-			isPalindrome = false;
+		if (num % i == 0)
+			return false;
 	}
 
-	return isPalindrome && num % 2 != 0;
+	return true;
 }
