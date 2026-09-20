@@ -1,12 +1,15 @@
-﻿int s = int.Parse(Console.ReadLine() ?? "");
-Print(s);
-void Print(int num) 
+﻿long s = long.Parse(Console.ReadLine() ?? "");
+Console.WriteLine(Wonderful_Num(s) ? "YES" : "NO");
+bool Wonderful_Num(long num)
 {
-	for (int i = 1; i <= s; i++)
-	{
-        Console.Write(i);
+	string binary = Convert.ToString(num, 2);
+	bool isPalindrome = true;
 
-        if (i != s)
-            Console.Write(" ");
-    }
+	for (int i = 0; i < binary.Length/2; i++)
+	{
+		if (binary[i] != binary[binary.Length - 1 - i])
+			isPalindrome = false;
+	}
+
+	return isPalindrome && num % 2 != 0;
 }
