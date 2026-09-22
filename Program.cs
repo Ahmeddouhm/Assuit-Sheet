@@ -1,14 +1,7 @@
-﻿int itrs = int.Parse(Console.ReadLine() ?? "");
-while (itrs -- > 0)
+﻿string itrs = (Console.ReadLine() ?? "");
+int[] input = Array.ConvertAll((Console.ReadLine() ?? "").Split(),int.Parse);
+Max_Min(input);
+void Max_Min(int[] arr) 
 {
-	string[] input = (Console.ReadLine() ?? "").Split();
-	Loop(int.Parse(input[0]), input[1]);
-    Console.WriteLine();
-}
-void Loop(int n, string c) 
-{
-	for (int i = 0; i < n; i++)
-	{
-        Console.Write($"{c} ");
-	}
+    Console.WriteLine($"{arr.Min()} {arr.Max()}");
 }
