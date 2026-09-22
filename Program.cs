@@ -1,11 +1,14 @@
-﻿long[] s = Array.ConvertAll((Console.ReadLine() ?? "").Split(),long.Parse);
-Console.WriteLine(Equation(s[0], s[1]));
-long Equation(long x, long n)
+﻿int itrs = int.Parse(Console.ReadLine() ?? "");
+while (itrs -- > 0)
 {
-	long equation = 0;
-	
-	for (int i = 2; i <= n; i+=2)
-		equation += (long)Math.Pow(x, i);
-
-	return equation;
+	string[] input = (Console.ReadLine() ?? "").Split();
+	Loop(int.Parse(input[0]), input[1]);
+    Console.WriteLine();
+}
+void Loop(int n, string c) 
+{
+	for (int i = 0; i < n; i++)
+	{
+        Console.Write($"{c} ");
+	}
 }
