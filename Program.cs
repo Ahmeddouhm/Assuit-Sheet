@@ -1,23 +1,23 @@
-﻿int[] input = Array.ConvertAll((Console.ReadLine() ?? "").Split(), int.Parse);
-int n = input[0], x = input[1];
-int[] array = Array.ConvertAll((Console.ReadLine() ?? "").Split(), int.Parse);
-List<int> ints = new List<int>(array);
+﻿int n = int.Parse(Console.ReadLine() ?? "");
+int[] a = Array.ConvertAll((Console.ReadLine() ?? "").Split(), int.Parse);
+int[] b = Array.ConvertAll((Console.ReadLine() ?? "").Split(), int.Parse);
 
-int shiftTimes = x % n;
+Create_Array(a, b);
 
-Shift_Right_Array(array, shiftTimes);
-Print_Array(ints);
-
-void Shift_Right_Array(int[] array, int shifts)
+void Create_Array(int[] a, int[] b)
 {
-    for (int i = 0; i < shifts; i++)
-    {
-        ints.Insert(0,ints[ints.Count - 1]);
-        ints.RemoveAt(ints.Count - 1);
-    }
+    int[] c = new int[a.Length + b.Length];
+
+    for (int i = 0; i < b.Length; i++)
+        c[i] = b[i];
+
+    for (int i = 0; i < a.Length; i++)
+        c[i + b.Length] = a[i];
+
+    Print_Array(c);
 }
-void Print_Array(List<int> array) 
+void Print_Array(int[] array) 
 {
-    for (int i = 0; i < array.Count; i++)
+    for (int i = 0; i < array.Length; i++)
         Console.Write($"{array[i]} ");
 }
