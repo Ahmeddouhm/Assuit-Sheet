@@ -1,23 +1,14 @@
 ﻿int n = int.Parse(Console.ReadLine() ?? "");
 int[] a = Array.ConvertAll((Console.ReadLine() ?? "").Split(), int.Parse);
-int[] b = Array.ConvertAll((Console.ReadLine() ?? "").Split(), int.Parse);
 
-Create_Array(a, b);
+Console.WriteLine(Distinct_Numbers(a));
 
-void Create_Array(int[] a, int[] b)
+int Distinct_Numbers(int[] array)
 {
-    int[] c = new int[a.Length + b.Length];
+    HashSet<int> hSet = new();
 
-    for (int i = 0; i < b.Length; i++)
-        c[i] = b[i];
+    foreach (var x in array)
+        hSet.Add(x);
 
-    for (int i = 0; i < a.Length; i++)
-        c[i + b.Length] = a[i];
-
-    Print_Array(c);
-}
-void Print_Array(int[] array) 
-{
-    for (int i = 0; i < array.Length; i++)
-        Console.Write($"{array[i]} ");
+    return hSet.Count;
 }
