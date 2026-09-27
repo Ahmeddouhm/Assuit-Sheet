@@ -1,21 +1,21 @@
-﻿int n = int.Parse(Console.ReadLine().Trim());
+﻿int n = int.Parse(Console.ReadLine() ?? "");
+int[] a = Array.ConvertAll((Console.ReadLine() ?? "").Split(), int.Parse);
 
-int[] arr = new int[n];
+Shift_Zeros(a);
 
-if (n > 0)
+void Shift_Zeros(int[] array)
 {
-    string[] parts = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
-    for (int i = 0; i < n; i++)
-        arr[i] = int.Parse(parts[i]);
-}
+    int idx = 0;
 
-Console.WriteLine(CountDistinct(arr, n));
-int CountDistinct(int[] array, int n)
-{
-    HashSet<int> set = new HashSet<int>();
+	for (int i = 0; i < array.Length; i++)
+	{
+		if (array[i] != 0)
+        {
+            (array[i], array[idx]) = (array[idx], array[i]);
+            idx++;
+        }
+    }
 
-    for (int i = 0; i < n; i++)
-        set.Add(arr[i]);
-
-    return set.Count;
+	foreach (var x in array)
+        Console.Write($"{x} ");
 }
