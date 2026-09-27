@@ -1,14 +1,21 @@
-﻿int n = int.Parse(Console.ReadLine() ?? "");
-int[] a = Array.ConvertAll((Console.ReadLine() ?? "").Split(), int.Parse);
+﻿int n = int.Parse(Console.ReadLine().Trim());
 
-Console.WriteLine(Distinct_Numbers(a));
+int[] arr = new int[n];
 
-int Distinct_Numbers(int[] array)
+if (n > 0)
 {
-    HashSet<int> hSet = new();
+    string[] parts = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+    for (int i = 0; i < n; i++)
+        arr[i] = int.Parse(parts[i]);
+}
 
-    foreach (var x in array)
-        hSet.Add(x);
+Console.WriteLine(CountDistinct(arr, n));
+int CountDistinct(int[] array, int n)
+{
+    HashSet<int> set = new HashSet<int>();
 
-    return hSet.Count;
+    for (int i = 0; i < n; i++)
+        set.Add(arr[i]);
+
+    return set.Count;
 }
