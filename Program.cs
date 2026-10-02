@@ -1,15 +1,17 @@
-﻿Int128 num = Int128.Parse(Console.ReadLine() ?? "");
+﻿long[] nums = Array.ConvertAll((Console.ReadLine() ?? "").Split(), long.Parse);
+long start = nums.Min(), end = nums.Max();
+long totalSum = SumNatural(end) - SumNatural(start - 1);
+long evenSum = SumEven(start, end);
+long oddSum = totalSum - evenSum;
 
-Console.WriteLine((isPrime(num)) ? "YES" : "NO");
-
-bool isPrime(Int128 n) 
+Console.WriteLine(totalSum);
+Console.WriteLine(evenSum);
+Console.WriteLine(oddSum);
+static long SumNatural(long n)
 {
-	if (n < 2)
-		return false;
-
-	for (long i = 2; i*i <= n; i++)
-		if (n % i == 0)
-			return false;
-
-	return true;
+    return (n * (n + 1)) / 2; ;
+}
+static long SumEven(long l, long r)
+{
+    return SumNatural(r / 2) * 2 - SumNatural((l - 1) / 2) * 2;
 }
