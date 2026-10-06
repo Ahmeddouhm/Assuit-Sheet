@@ -1,11 +1,15 @@
-﻿long[] nums = Array.ConvertAll((Console.ReadLine() ?? "").Split(), long.Parse);
+﻿long n = long.Parse(Console.ReadLine() ?? "");
 
-long a = nums[0], b = nums[1], q = nums[2];
-long itr = q % 3;
+long sum = 0;
+int count = 0;
 
-if (itr == 1)
-    Console.WriteLine(a);
-else if (itr == 2)
-    Console.WriteLine(b);
-else if (itr == 0)
-    Console.WriteLine(a ^ b);
+for (long i = 1; ;i++)
+{
+	if (sum + i > n)
+		break;
+
+	sum += i;
+	count++;
+}
+
+Console.WriteLine(count);
